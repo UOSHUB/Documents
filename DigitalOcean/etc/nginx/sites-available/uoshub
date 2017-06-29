@@ -1,0 +1,46 @@
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name uoshub.com www.uoshub.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location /static/ {
+        root /home;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/UOSHUB.sock;
+    }
+
+    ssl_certificate /etc/letsencrypt/live/uoshub.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/uoshub.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+
+    if ($scheme != "https") {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name github.uoshub.com code.uoshub.com;
+    return 301 https://github.com/uoshub;
+}
+
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name api.uoshub.com;
+    return 301 https://uoshub.com/api/$request_uri;
+}
+
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name admin.uoshub.com;
+    return 301 https://uoshub.com/admin/$request_uri;
+}
+
