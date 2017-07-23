@@ -1,0 +1,6 @@
+# Added at the top of sources list to fix unavailable local mirrors (if any)
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-updates main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-backports main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt xenial-security main restricted universe multiverse
+
