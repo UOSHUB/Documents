@@ -6,6 +6,7 @@ After=network.target
 User=root
 Group=www-data
 WorkingDirectory=/home
+EnvironmentFile=/etc/gunicorn.conf
 ExecStart=/usr/local/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/UOSHUB.sock UOSHUB.wsgi:application
 
 [Install]
