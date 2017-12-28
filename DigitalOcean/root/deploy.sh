@@ -4,7 +4,7 @@
 cd /home
 
 # Clean up cached static files
-rm -r static Website/static/min
+rm -r static Website/static/min Website/static/fonts
 
 # Backup database file
 mv db.sqlite3 db.save
@@ -22,8 +22,16 @@ cd ../..
 # Restore database file
 mv db.save db.sqlite3
 
+# Install python packages updates if any
+pip3 install -r requirements.txt
+
+# Download & combine static requirements
+cd Website
+python3 download.py
+cd ..
+
 # Compress and collect static files
-python3 manage.py compress
+python3 manage.py compress --force
 python3 manage.py collectstatic
 
 # Clean up uncompressed static files
