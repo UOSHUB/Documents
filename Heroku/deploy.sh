@@ -9,9 +9,10 @@ cd Website
 rm -rf static
 git clone https://github.com/UOSHUB/FrontEnd static
 
-echo "Downloading static requirements & compress static files"
+echo "Downloading static requirements & compressing static files"
+export DEBUG="False"
 python download.py
-python ../manage.py compress --force
+python ../manage.py compress
 
 echo "Cleaning up front-end Git files and useless files"
 cd static
