@@ -14,6 +14,7 @@
 	- deploy.sh: A Bash script to pull new changes locally then push them to UOS HUB Heroku repository
 	- Procfile: Declares the Gunicorn command that will be run by UOS HUB's dynos on the Heroku platform
 	- runtime.txt: Specifies which version of Python should be used on Heroku
+	- ping.py: A Python script that pings UOS HUB, it's used to prevent Heroku's dyno from sleeping
 
 
 ***
