@@ -10,7 +10,7 @@
         - .bashrc: An addition to root user's Bash configs to fix language warnings and default python to python3
         - deploy.sh: A Bash script to deploy new changes of UOS HUB (clean up -> pull changes -> collect & restart)
 
-- Heroku: contains necessary files for deployment on Heroku
+- Heroku: Contains necessary files for deployment on Heroku
 	- deploy.sh: A Bash script to pull new changes locally then push them to UOS HUB Heroku repository
 	- Procfile: Declares the Gunicorn command that will be run by UOS HUB's dynos on the Heroku platform
 	- runtime.txt: Specifies which version of Python should be used on Heroku
