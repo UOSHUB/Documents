@@ -1,8 +1,7 @@
-from requests import get as ping
 from datetime import datetime
+from pytz import timezone
+import requests
 
-# Ping UOS HUB to prevent Heroku's dyno from sleeping
-if ping("https://uoshub.com").status_code != 200:
-    print("Failed to", end=" ")
-
-print("ping UOS HUB at", str(datetime.now())[:-7])
+time = datetime.now(timezone('Asia/Dubai'))
+requests.get("https://uoshub.com/api/")
+print("pinged UOS HUB at", str(time)[:-7])
